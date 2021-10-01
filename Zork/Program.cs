@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -18,9 +19,9 @@ namespace Zork
         {
             Console.WriteLine("Welcome to Zork!");
 
-            const string RoomFileName = "Rooms.txt";
+            const string RoomFileName = "Rooms.json";
 
-            InitializeRoomDescription(RoomFileName);
+            InitializeRoom(RoomFileName);
 
             Room Previousroom = null;
 
@@ -101,50 +102,12 @@ namespace Zork
 
         private static Commands ToCommand(string commandString) => Enum.TryParse(commandString, true, out Commands result) ? result : Commands.UNKOWN;
 
-        private static readonly Room[,] Rooms =
-            {
-                 {new Room("Rocky Trail"), new Room("South of House"), new Room("Canyon View")},
-                 {new Room("Forest"), new Room("West of House"), new Room("Behind the House")},
-                 {new Room("Dense Woods"), new Room("North of House"),new Room("Clearing")}
-            };
+        private static Room[,] Rooms;
 
         private static (int Row, int Column) Location = (1,1);
-
-        private enum Fields
+        private static void InitializeRoom(string RoomFileName)
         {
-            Name = 0,
-            Description
-        }
-
-        private static void InitializeRoomDescription(string RoomFileName)
-        {
-            var RoomMap = new Dictionary<string, Room>();
-
-            foreach(Room room in Rooms)
-            {
-                RoomMap.Add(room.Name, room);
-            }
-
-            string[] lines = File.ReadAllLines(RoomFileName);
-
-            foreach (string line in lines)
-            {
-                const string FieldDelimiter = "##";
-
-                const int ExpectedFieldCount = 2;
-
-                string[] fields = line.Split(FieldDelimiter);
-
-                if (fields.Length != ExpectedFieldCount)
-                {
-                    throw new InvalidDataException("Invalid record.");
-                }
-
-                string name = fields[(int)Fields.Name];
-                string description = fields[(int)Fields.Description];
-
-                RoomMap[name].Description = description;
-            }
+            Rooms = JsonConvert.DeserializeObject<Room[,]>(File.ReadAllText(RoomFileName));
         }
     }
 }
