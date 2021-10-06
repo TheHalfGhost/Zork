@@ -6,7 +6,7 @@ namespace Zork
 {
     public class Game
     {
-        public World World { get; set; }
+        public World World { get; private set; }
 
         public string StartingLocation { get; set; }
 
@@ -15,6 +15,12 @@ namespace Zork
 
         public string WelcomeMessage { get; set; }
 
+        public Game(World world, Player player)
+        {
+            World = world;
+
+            Player = player;
+        }
 
         [OnDeserialized]
         private void OnDeserialized(StreamingContext context)
@@ -32,11 +38,11 @@ namespace Zork
             {
                 Console.Write($"{Player.CurrentRoom.Name}\n> ");
 
-                if (Player.PreviousRoom != Player.CurrentRoom)
+                if (Player.PerviousRoom != Player.CurrentRoom)
                 {
                     Console.Write($"{Player.CurrentRoom.Description}\n> ");
 
-                    Player.PreviousRoom = Player.CurrentRoom;
+                    Player.PerviousRoom = Player.CurrentRoom;
                 }
 
                 command = ToCommand(Console.ReadLine().Trim());
@@ -50,7 +56,7 @@ namespace Zork
                         break;
 
                     case Commands.LOOK:
-                        Movement++;
+                        Player.Movement++;
                         outputString = Player.CurrentRoom.Description;
                         break;
 
@@ -58,17 +64,25 @@ namespace Zork
                     case Commands.SOUTH:
                     case Commands.EAST:
                     case Commands.WEST:
-                        Movement++;
-                        outputString = Player.Move(command) ? $"You moved {command}." : "The way is shut";
+                        Player.Movement++;
+                        Directions directions = Enum.Parse<Directions>(command.ToString(), true);
+                        if (Player.Move(directions) == false)
+                        {
+                            outputString = $"You moved {directions}";
+                        }
+                        else
+                        { 
+                            outputString = "The way is shut";
+                        }
                         break;
 
                     case Commands.REWARD:
-                        Score++;
+                        Player.Score++;
                         outputString = "Your score has increased";
                         break;
 
                     case Commands.SCORE:
-                        outputString = $"Your score would be {Score}, in {Movement} move(s).";
+                        outputString = $"Your score would be {Player.Score}, in {Player.Movement} move(s).";
                         break;
 
                     default:
@@ -80,10 +94,6 @@ namespace Zork
             }
         }
         private static Commands ToCommand(string commandString) => Enum.TryParse(commandString, true, out Commands result) ? result : Commands.UNKOWN;
-
-        public int Score = 0;
-
-        public int Movement = 0;
 
     }
 }

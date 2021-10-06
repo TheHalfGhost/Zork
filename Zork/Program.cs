@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using System.IO;
-using System;
 
 namespace Zork
 {
@@ -8,7 +7,6 @@ namespace Zork
     {
         static void Main(string[] args)
         {
-
             const string defaultGameFileName = "Zork.json";
 
             string gameFileName = args.Length > 0 ? args[(int)CommandLineArguments.GameFileName] : defaultGameFileName;
