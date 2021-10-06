@@ -1,6 +1,6 @@
 ﻿namespace Zork
 {
-    enum Commands
+   public enum Commands
     {
         QUIT,
         LOOK,
@@ -8,6 +8,8 @@
         SOUTH,
         EAST,
         WEST,
+        SCORE,
+        REWARD,
         UNKOWN
     }
 }
