@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "6cwcgdJieESoOaJeejYcJrDQdlVrP2KQFX0QdIhEWWhboKlC0Hz+cVOSCqE5hnpAB2WRtWPR80xMtPzM0GgtKQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Alexander Williams\\Documents\\GitHubT&P\\Zork\\Zork.World\\Zork.World.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Alexander Williams\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Alexander Williams\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

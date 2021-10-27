@@ -1,0 +1,10 @@
+C:\Users\Alexander Williams\Documents\GitHubT&P\Zork\Zork.World\bin\Debug\netstandard2.0\Zork.World.deps.json
+C:\Users\Alexander Williams\Documents\GitHubT&P\Zork\Zork.World\bin\Debug\netstandard2.0\Zork.World.dll
+C:\Users\Alexander Williams\Documents\GitHubT&P\Zork\Zork.World\bin\Debug\netstandard2.0\Zork.World.pdb
+C:\Users\Alexander Williams\Documents\GitHubT&P\Zork\Zork.World\obj\Debug\netstandard2.0\Zork.World.AssemblyInfoInputs.cache
+C:\Users\Alexander Williams\Documents\GitHubT&P\Zork\Zork.World\obj\Debug\netstandard2.0\Zork.World.AssemblyInfo.cs
+C:\Users\Alexander Williams\Documents\GitHubT&P\Zork\Zork.World\obj\Debug\netstandard2.0\Zork.World.csproj.CoreCompileInputs.cache
+C:\Users\Alexander Williams\Documents\GitHubT&P\Zork\Zork.World\obj\Debug\netstandard2.0\Zork.World.dll
+C:\Users\Alexander Williams\Documents\GitHubT&P\Zork\Zork.World\obj\Debug\netstandard2.0\Zork.World.pdb
+C:\Users\Alexander Williams\Documents\GitHubT&P\Zork\Zork.World\bin\Debug\netstandard2.0\World.json
+C:\Users\Alexander Williams\Documents\GitHubT&P\Zork\Zork.World\obj\Debug\netstandard2.0\Zork.World.csproj.AssemblyReference.cache

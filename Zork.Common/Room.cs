@@ -29,9 +29,10 @@ namespace Zork
         {
             Neighbors = new Dictionary<Directions, Room>();
 
-            foreach (var (direction, name) in NeighborsNames)
+            foreach (var pair in NeighborsNames)
             {
-               Neighbors.Add(direction, world.RoomByName[name]);
+                (Directions directions, string name) = (pair.Key, pair.Value);
+                Neighbors.Add(directions, world.RoomByName[name]);
             }
         }
     }

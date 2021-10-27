@@ -65,14 +65,15 @@ namespace Zork
                     case Commands.EAST:
                     case Commands.WEST:
                         Player.Movement++;
-                        Directions directions = Enum.Parse<Directions>(command.ToString(), true);
+                        Directions directions = (Directions)command;
                         if (Player.Move(directions) == false)
                         {
-                            outputString = $"You moved {directions}";
+                           outputString = "The way is shut";
                         }
                         else
-                        { 
-                            outputString = "The way is shut";
+                        {
+                           
+                           outputString = $"You moved {directions}";
                         }
                         break;
 
@@ -94,6 +95,5 @@ namespace Zork
             }
         }
         private static Commands ToCommand(string commandString) => Enum.TryParse(commandString, true, out Commands result) ? result : Commands.UNKOWN;
-
     }
 }

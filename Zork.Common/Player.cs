@@ -1,6 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 
 namespace Zork
 {
@@ -11,6 +9,7 @@ namespace Zork
         [JsonIgnore]
         public Room CurrentRoom { get; set; }
 
+        [JsonIgnore]
         public string SetLocation
         {
             get
@@ -41,7 +40,7 @@ namespace Zork
                 CurrentRoom = neighbor;
             }
 
-            return false;
+            return IsValidMove;
         }
 
         public int Score = 0;
