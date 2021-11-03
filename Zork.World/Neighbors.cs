@@ -6,6 +6,12 @@ namespace Zork.World
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public string Name { get; set; }
+        public string NORTH { get; set; }
+
+        public string SOUTH { get; set; }
+
+        public string EAST { get; set; }
+
+        public string WEST { get; set; }
     }
 }

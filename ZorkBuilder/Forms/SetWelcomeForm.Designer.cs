@@ -55,7 +55,6 @@ namespace ZorkBuilder.Forms
             this.SetButton.TabIndex = 1;
             this.SetButton.Text = "Set Welcome";
             this.SetButton.UseVisualStyleBackColor = true;
-            this.SetButton.Click += new System.EventHandler(this.SetButton_Click);
             // 
             // CancelButton
             // 
@@ -74,8 +73,8 @@ namespace ZorkBuilder.Forms
             this.CurrentMessage.Name = "CurrentMessage";
             this.CurrentMessage.Size = new System.Drawing.Size(456, 26);
             this.CurrentMessage.TabIndex = 3;
+            this.CurrentMessage.Text = "Welcom to Zork!";
             this.CurrentMessage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.CurrentMessage.TextChanged += new System.EventHandler(this.CurrentMessage_TextChanged);
             // 
             // label1
             // 
