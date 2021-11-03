@@ -22,11 +22,23 @@ namespace ZorkBuilder.Forms
         public SetWelcomeForm()
         {
             InitializeComponent();
+            
         }
 
         private void WelcomeText_TextChanged(object sender, EventArgs e)
         {
             SetButton.Enabled = !string.IsNullOrEmpty(SetLocation);
+            
+        }
+
+        private void CurrentMessage_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void SetButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

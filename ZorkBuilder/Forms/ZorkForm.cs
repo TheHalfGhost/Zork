@@ -1,9 +1,11 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Windows.Forms;
 using Zork.World;
+using ZorkBuilder.Controls;
 using ZorkBuilder.Forms;
 using ZorkBuilder.ViewModel;
 
@@ -12,6 +14,8 @@ namespace ZorkBuilder
     public partial class ZorkForm : Form
     {
         private WorldViewModel viewModel;
+
+        private Dictionary<NeighborLocations, NeighborsControl> neighborsControlsMap;
 
         private WorldViewModel ViewModel
         {
@@ -54,6 +58,15 @@ namespace ZorkBuilder
             ViewModel = new WorldViewModel();
 
             WorldIsLoaded = false;
+
+            neighborsControlsMap = new Dictionary<NeighborLocations, NeighborsControl>
+            {
+                {NeighborLocations.NORTH, NorthControl},
+                {NeighborLocations.SOUTH, SouthContorl},
+                {NeighborLocations.WEST, WestControl},
+                {NeighborLocations.EAST, EastControl}
+
+            };
         }
 
         private void OpenFile(object sender, EventArgs e)
@@ -67,6 +80,13 @@ namespace ZorkBuilder
                     ViewModel.World = JsonConvert.DeserializeObject<World>(jsonString);
 
                     WorldIsLoaded = true;
+
+                    Rooms selectedRoom = ListRooms.SelectedItem as Rooms;
+
+                    foreach (var control in neighborsControlsMap.Values)
+                    {
+                        control.Rooms = selectedRoom;
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -96,6 +116,39 @@ namespace ZorkBuilder
 
                 }
             }
+        }
+
+        private void SaveFileButton_Click(object sender, EventArgs e)
+        {
+            string filename = "TestFile.json";
+            viewModel.SaveWorld(filename);
+        }
+
+        private void ListRooms_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (var control in neighborsControlsMap.Values)
+            {
+                Rooms selectedRoom = ListRooms.SelectedItem as Rooms;
+
+                control.Rooms = selectedRoom;
+            }
+        }
+
+        private void DeleteRoomButton_Click(object sender, EventArgs e)
+        {
+            if (ListRooms.Items.Count >= 1)
+            {
+                if (ListRooms.SelectedValue != null)
+                {
+                    ListRooms.Items.Remove(ListRooms.SelectedItem);
+                }
+            }
+        }
+
+        private void StartingLocationComboBox_BindingContextChanged(object sender, EventArgs e)
+        {
+            StartingLocationComboBox.DataSource = new BindingSource { DataSource = ListRooms.DataSource };
+
         }
     }
 }
