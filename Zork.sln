@@ -3,13 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zork", "Zork\Zork.csproj", "{44C4F445-CA4B-458D-8B5B-D56DA0CC81D5}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zork.Common", "Zork.Common\Zork.Common.csproj", "{31BCEE52-FD85-472B-B918-A417E0FB5C26}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zork.Builder", "ZorkBuilder\Zork.Builder.csproj", "{0D92A95C-BE68-4110-BA41-6452B3F13D30}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zork.World", "Zork.World\Zork.World.csproj", "{3DB81C5E-EABC-460E-B186-7FE453D6E905}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zork", "Zork\Zork.csproj", "{44C4F445-CA4B-458D-8B5B-D56DA0CC81D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,18 +15,6 @@ Global
 		{44C4F445-CA4B-458D-8B5B-D56DA0CC81D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44C4F445-CA4B-458D-8B5B-D56DA0CC81D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44C4F445-CA4B-458D-8B5B-D56DA0CC81D5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{31BCEE52-FD85-472B-B918-A417E0FB5C26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{31BCEE52-FD85-472B-B918-A417E0FB5C26}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{31BCEE52-FD85-472B-B918-A417E0FB5C26}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{31BCEE52-FD85-472B-B918-A417E0FB5C26}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0D92A95C-BE68-4110-BA41-6452B3F13D30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0D92A95C-BE68-4110-BA41-6452B3F13D30}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0D92A95C-BE68-4110-BA41-6452B3F13D30}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0D92A95C-BE68-4110-BA41-6452B3F13D30}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3DB81C5E-EABC-460E-B186-7FE453D6E905}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3DB81C5E-EABC-460E-B186-7FE453D6E905}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3DB81C5E-EABC-460E-B186-7FE453D6E905}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3DB81C5E-EABC-460E-B186-7FE453D6E905}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
