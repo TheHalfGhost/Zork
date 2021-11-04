@@ -1,10 +1,11 @@
-C:\Users\Alexander Williams\Desktop\Tools And Plugins\Zork Builder\ZorkBuilder\ZorkBuilder\bin\Debug\ZorkBuilder.exe.config
-C:\Users\Alexander Williams\Desktop\Tools And Plugins\Zork Builder\ZorkBuilder\ZorkBuilder\bin\Debug\ZorkBuilder.exe
-C:\Users\Alexander Williams\Desktop\Tools And Plugins\Zork Builder\ZorkBuilder\ZorkBuilder\bin\Debug\ZorkBuilder.pdb
-C:\Users\Alexander Williams\Desktop\Tools And Plugins\Zork Builder\ZorkBuilder\ZorkBuilder\obj\Debug\ZorkBuilder.csproj.AssemblyReference.cache
-C:\Users\Alexander Williams\Desktop\Tools And Plugins\Zork Builder\ZorkBuilder\ZorkBuilder\obj\Debug\ZorkBuilder.ZorkForm.resources
-C:\Users\Alexander Williams\Desktop\Tools And Plugins\Zork Builder\ZorkBuilder\ZorkBuilder\obj\Debug\ZorkBuilder.Properties.Resources.resources
-C:\Users\Alexander Williams\Desktop\Tools And Plugins\Zork Builder\ZorkBuilder\ZorkBuilder\obj\Debug\ZorkBuilder.csproj.GenerateResource.cache
-C:\Users\Alexander Williams\Desktop\Tools And Plugins\Zork Builder\ZorkBuilder\ZorkBuilder\obj\Debug\ZorkBuilder.csproj.CoreCompileInputs.cache
-C:\Users\Alexander Williams\Desktop\Tools And Plugins\Zork Builder\ZorkBuilder\ZorkBuilder\obj\Debug\ZorkBuilder.exe
-C:\Users\Alexander Williams\Desktop\Tools And Plugins\Zork Builder\ZorkBuilder\ZorkBuilder\obj\Debug\ZorkBuilder.pdb
+C:\Users\Alexander Williams\Documents\GitHubT&P\Zork\ZorkBuilder\bin\Debug\ZorkBuilder.exe.config
+C:\Users\Alexander Williams\Documents\GitHubT&P\Zork\ZorkBuilder\bin\Debug\ZorkBuilder.exe
+C:\Users\Alexander Williams\Documents\GitHubT&P\Zork\ZorkBuilder\bin\Debug\ZorkBuilder.pdb
+C:\Users\Alexander Williams\Documents\GitHubT&P\Zork\ZorkBuilder\obj\Debug\ZorkBuilder.csproj.AssemblyReference.cache
+C:\Users\Alexander Williams\Documents\GitHubT&P\Zork\ZorkBuilder\obj\Debug\ZorkBuilder.Properties.Resources.resources
+C:\Users\Alexander Williams\Documents\GitHubT&P\Zork\ZorkBuilder\obj\Debug\ZorkBuilder.csproj.GenerateResource.cache
+C:\Users\Alexander Williams\Documents\GitHubT&P\Zork\ZorkBuilder\obj\Debug\ZorkBuilder.csproj.CoreCompileInputs.cache
+C:\Users\Alexander Williams\Documents\GitHubT&P\Zork\ZorkBuilder\obj\Debug\ZorkBuilder.exe
+C:\Users\Alexander Williams\Documents\GitHubT&P\Zork\ZorkBuilder\obj\Debug\ZorkBuilder.pdb
+C:\Users\Alexander Williams\Documents\GitHubT&P\Zork\ZorkBuilder\obj\Debug\ZorkBuilder.MainForm.resources
+C:\Users\Alexander Williams\Documents\GitHubT&P\Zork\ZorkBuilder\obj\Debug\ZorkBuilder.Controls.NeighborsUserControl.resources

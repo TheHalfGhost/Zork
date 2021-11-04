@@ -22,9 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Zork.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <ProjectReference Include="..\Zork.Common\Zork.Common.csproj" />
   </ItemGroup>
 
 </Project>
