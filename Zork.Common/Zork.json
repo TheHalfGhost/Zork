@@ -1,7 +1,6 @@
 {
 	"WelcomeMessage": "Welcome to Zork!",
 	"StartingLocation": "West of House",
-	"World": {
 		"Rooms": [
 			{
 				"Name": "Rocky Trail",
@@ -33,8 +32,7 @@
 				"Description": "This is a forest, with rees in all directions around you.",
 				"Neighbors": {
 					"SOUTH": "Rocky Trail",
-					"EAST": "West of House",
-					"NORTH": "Dense Woods"
+					"EAST": "West of House"
 				}
 			},
 			{
@@ -43,8 +41,7 @@
 				"Neighbors": {
 					"NORTH": "North of House",
 					"SOUTH": "South of House",
-					"EAST": "Behind House",
-					"WEST": "Forest"
+					"EAST": "Behind House"
 				}
 			},
 			{
@@ -82,5 +79,4 @@
 				}
 			}
 		]
-	}
 }

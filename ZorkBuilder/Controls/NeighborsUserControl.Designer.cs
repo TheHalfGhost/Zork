@@ -30,7 +30,7 @@ namespace ZorkBuilder.Controls
         private void InitializeComponent()
         {
             this.DirectionText = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.NeighborsComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // DirectionText
@@ -42,20 +42,20 @@ namespace ZorkBuilder.Controls
             this.DirectionText.TabIndex = 0;
             this.DirectionText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // comboBox1
+            // NeighborsComboBox
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(0, 33);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(201, 28);
-            this.comboBox1.TabIndex = 1;
+            this.NeighborsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.NeighborsComboBox.FormattingEnabled = true;
+            this.NeighborsComboBox.Location = new System.Drawing.Point(0, 33);
+            this.NeighborsComboBox.Name = "NeighborsComboBox";
+            this.NeighborsComboBox.Size = new System.Drawing.Size(201, 28);
+            this.NeighborsComboBox.TabIndex = 1;
             // 
             // NeighborsUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.NeighborsComboBox);
             this.Controls.Add(this.DirectionText);
             this.Name = "NeighborsUserControl";
             this.Size = new System.Drawing.Size(203, 67);
@@ -67,6 +67,6 @@ namespace ZorkBuilder.Controls
         #endregion
 
         private System.Windows.Forms.TextBox DirectionText;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox NeighborsComboBox;
     }
 }

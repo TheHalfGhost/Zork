@@ -1,14 +1,17 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace Zork
 {
-    public class Room
+    public class Room : INotifyPropertyChanged
     {
-        public string Name { get; private set; }
+        public event PropertyChangedEventHandler PropertyChanged;
 
-        public string Description { get; private set; }
+        public string Name { get; set; }
+
+        public string Description { get; set; }
 
         [JsonIgnore]
         public Dictionary<Directions, Room> Neighbors {get; set;}
@@ -16,11 +19,11 @@ namespace Zork
         [JsonProperty (PropertyName = "Neighbors")]
         public Dictionary<Directions, string> NeighborsNames { get; set; }
 
-        public Room(string name, string description = "")
+        public Room(string name = null, Dictionary<Directions, string > neighbors = null)
         {
             Name = name;
-    
-            Description = description;
+
+            NeighborsNames = neighbors;
         }
 
         public override string ToString() => Name;

@@ -1,9 +1,12 @@
 ﻿using Newtonsoft.Json;
+using System.ComponentModel;
 
 namespace Zork
 {
-    public class Player
+    public class Player: INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public World World { get; }
 
         [JsonIgnore]

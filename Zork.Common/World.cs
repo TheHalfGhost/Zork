@@ -1,13 +1,30 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Runtime.Serialization;
 
 namespace Zork
 {
-    public class World
+    public class World: INotifyPropertyChanged
     {
-        public Room[] Rooms { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
 
-        public Dictionary<string, Room> RoomByName { get; private set; }
+        public List<Room> Rooms { get; }
+
+        public string StartingLocation { get; }
+
+        public string WelcomeMessage { get; set; }
+
+        [JsonIgnore]
+        public Dictionary<string, Room> RoomByName { get; set; }
+
+        public World(IEnumerable<Room> rooms, IEnumerable<Room> neighbors, string Start, string welcomeMessage)
+        {
+            Rooms = new List<Room>(rooms);
+            StartingLocation = Start;
+            WelcomeMessage = welcomeMessage;
+        }
+
 
         [OnDeserialized]
         private void OnDeserialized(StreamingContext context)
