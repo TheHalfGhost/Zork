@@ -1,3 +1,7 @@
 .vs/
 Zork/bin/
 Zork/obj/
+Zork.Common/bin/
+Zork.Commom/obj/
+ZorkBuilder/bin/
+ZorkBuilder/obj/
