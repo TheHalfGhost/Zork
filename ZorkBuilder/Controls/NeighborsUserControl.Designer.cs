@@ -44,6 +44,7 @@ namespace ZorkBuilder.Controls
             // 
             // NeighborsComboBox
             // 
+            this.NeighborsComboBox.DisplayMember = "Name";
             this.NeighborsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.NeighborsComboBox.FormattingEnabled = true;
             this.NeighborsComboBox.Location = new System.Drawing.Point(0, 33);

@@ -39,6 +39,7 @@ namespace Zork
             foreach (Room room in Rooms)
             {
                 room.UpdateNeighbors(this);
+                room.BuildNeighborsFromName(Rooms);
             }
         }
     }

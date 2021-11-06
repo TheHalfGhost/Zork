@@ -77,11 +77,13 @@ namespace ZorkBuilder.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.CancelMessageButton;
             this.ClientSize = new System.Drawing.Size(326, 141);
             this.Controls.Add(this.NewMessageLabel);
             this.Controls.Add(this.CancelMessageButton);
             this.Controls.Add(this.SetButton);
             this.Controls.Add(this.NewMessageText);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "WelcomeForm";

@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Collections.Generic;
+using System.Windows.Forms;
 using Zork;
 
 namespace ZorkBuilder.Controls
@@ -29,6 +30,20 @@ namespace ZorkBuilder.Controls
 
                     if (rooms != null)
                     {
+                        var neighborRoom = new List<Room>(rooms.NeighborRooms);
+
+                        neighborRoom.Insert(0, NoNeighbor);
+
+                        NeighborsComboBox.DataSource = neighborRoom;
+
+                        if(rooms.Neighbors.TryGetValue(NeighborLocations, out Room neighbor))
+                        {
+                            NeighborsNames = neighbor;
+                        }
+                        else
+                        {
+                            NeighborsNames = NoNeighbor;
+                        }
 
                     }
                     else

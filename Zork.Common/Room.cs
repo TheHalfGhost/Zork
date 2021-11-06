@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace Zork
 {
@@ -16,14 +17,30 @@ namespace Zork
         [JsonIgnore]
         public Dictionary<Directions, Room> Neighbors {get; set;}
 
+        [JsonIgnore]
+        public List<Room> NeighborRooms { get; set; }
+
         [JsonProperty (PropertyName = "Neighbors")]
         public Dictionary<Directions, string> NeighborsNames { get; set; }
 
-        public Room(string name = null, Dictionary<Directions, string > neighbors = null)
+        public Room(string name = null, Dictionary<Directions, string> neighborsnames = null, List<string> neighborrooms = null)
         {
             Name = name;
 
-            NeighborsNames = neighbors;
+            NeighborsNames = neighborsnames;
+
+            NeighborRooms = new List<Room>();
+        }
+
+        public void BuildNeighborsFromName(List<Room> rooms)
+        {
+            Neighbors = (from entry in NeighborsNames
+                             let room = rooms.Find(i => i.Name.Equals(entry.Value, System.StringComparison.InvariantCultureIgnoreCase))
+                             where room != null
+                             select (Directions: entry.Key, Room: room)).ToDictionary(pair => pair.Directions, pair => pair.Room);
+
+
+            NeighborsNames.Clear();
         }
 
         public override string ToString() => Name;
