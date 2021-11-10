@@ -9,9 +9,9 @@ namespace Zork
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public List<Room> Rooms { get; }
+        public List<Room> Rooms { get; set; }
 
-        public string StartingLocation { get; }
+        public string StartingLocation { get; set; }
 
         public string WelcomeMessage { get; set; }
 

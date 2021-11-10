@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 
@@ -21,6 +22,8 @@ namespace Zork
 
         public string WelcomeMessage { get; set; }
 
+        public IOutputService Output { get; set; }
+
         [JsonIgnore]
         public Player Player { get; private set; }
 
@@ -39,17 +42,17 @@ namespace Zork
 
         public void Run()
         {
-            Console.WriteLine(WelcomeMessage);
+            Output.WriteLine(WelcomeMessage);
 
             Commands command = Commands.UNKOWN;
 
             while (command != Commands.QUIT)
             {
-                Console.Write($"{Player.CurrentRoom.Name}\n> ");
+                Output.Write($"{Player.CurrentRoom.Name}\n> ");
 
                 if (Player.PerviousRoom != Player.CurrentRoom)
                 {
-                    Console.Write($"{Player.CurrentRoom.Description}\n> ");
+                    Output.Write($"{Player.CurrentRoom.Description}\n> ");
 
                     Player.PerviousRoom = Player.CurrentRoom;
                 }
@@ -100,9 +103,21 @@ namespace Zork
                         break;
                 }
 
-                Console.WriteLine(outputString);
+                Output.WriteLine(outputString);
             }
         }
+
+        public static Game Load(string filename, IOutputService output)
+        {
+            Game game = JsonConvert.DeserializeObject<Game>(File.ReadAllText(filename));
+
+            game.Player = new Player(game.World, game.StartingLocation);
+
+            game.Output = output;
+
+            return game;
+        }
+
         private static Commands ToCommand(string commandString) => Enum.TryParse(commandString, true, out Commands result) ? result : Commands.UNKOWN;
     }
 }

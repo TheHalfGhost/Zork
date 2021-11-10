@@ -1,6 +1,7 @@
 {
 	"WelcomeMessage": "Welcome to Zork!",
 	"StartingLocation": "West of House",
+	"World": {
 		"Rooms": [
 			{
 				"Name": "Rocky Trail",
@@ -79,4 +80,5 @@
 				}
 			}
 		]
+	}
 }
