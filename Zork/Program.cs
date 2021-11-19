@@ -11,11 +11,29 @@ namespace Zork
 
             string gameFileName = args.Length > 0 ? args[(int)CommandLineArguments.GameFileName] : defaultGameFileName;
 
+            ConsoleInputService input = new ConsoleInputService();
+
             ConsoleOutputService output = new ConsoleOutputService();
 
-            Game game = Game.Load(gameFileName, output);
+            Game.ConvertFile(gameFileName, input, output);
 
-            game.Run();
+            output.WriteLine(Game.Instance.WelcomeMessage);
+
+            while (Game.Instance.IsRunning)
+            {
+                if (Game.Instance.Player.PerviousRoom != Game.Instance.Player.CurrentRoom)
+                {
+                    output.WriteLine(Game.Instance.Player.CurrentRoom.Name);
+                    output.WriteLine(Game.Instance.Player.CurrentRoom.Description);
+                    Game.Instance.Player.PerviousRoom = Game.Instance.Player.CurrentRoom;
+                }
+
+                output.Write("\n> ");
+
+                input.GetInput();
+            }
+
+            output.WriteLine("Thank you for playing!");
         }
 
         private enum CommandLineArguments

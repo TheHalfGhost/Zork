@@ -1,4 +1,8 @@
-﻿namespace Zork
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Zork
 {
     public enum Commands
     {

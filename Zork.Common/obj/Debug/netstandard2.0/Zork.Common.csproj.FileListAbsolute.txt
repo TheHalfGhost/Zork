@@ -7,3 +7,7 @@ C:\Users\Alexander Williams\Documents\GitHubT&P\Zork\Zork.Common\bin\Debug\netst
 C:\Users\Alexander Williams\Documents\GitHubT&P\Zork\Zork.Common\bin\Debug\netstandard2.0\Zork.Common.pdb
 C:\Users\Alexander Williams\Documents\GitHubT&P\Zork\Zork.Common\obj\Debug\netstandard2.0\Zork.Common.dll
 C:\Users\Alexander Williams\Documents\GitHubT&P\Zork\Zork.Common\obj\Debug\netstandard2.0\Zork.Common.pdb
+C:\Users\Alexander Williams\Documents\GitHubT&P\Zork\Zork.Unity\Assets\netstandard2.0\Zork.Common.deps.json
+C:\Users\Alexander Williams\Documents\GitHubT&P\Zork\Zork.Unity\Assets\netstandard2.0\Zork.Common.dll
+C:\Users\Alexander Williams\Documents\GitHubT&P\Zork\Zork.Unity\Assets\netstandard2.0\Zork.Common.pdb
+C:\Users\Alexander Williams\Documents\GitHubT&P\Zork\Zork.Common\obj\Debug\netstandard2.0\Zork.Common.GeneratedMSBuildEditorConfig.editorconfig

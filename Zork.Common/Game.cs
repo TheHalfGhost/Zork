@@ -22,10 +22,20 @@ namespace Zork
 
         public string WelcomeMessage { get; set; }
 
+        [JsonIgnore]
         public IOutputService Output { get; set; }
 
         [JsonIgnore]
+        public IInputService Input { get; set; }
+
+        [JsonIgnore]
         public Player Player { get; private set; }
+
+        [JsonIgnore]
+        public static Game Instance { get; private set; }
+
+        [JsonIgnore]
+        public bool IsRunning { get; private set; }
 
         public Game(World world, Player player)
         {
@@ -40,84 +50,87 @@ namespace Zork
             Player = new Player(World, StartingLocation);
         }
 
-        public void Run()
+        public static void ConvertFile(string filename, IInputService input, IOutputService output)
         {
-            Output.WriteLine(WelcomeMessage);
-
-            Commands command = Commands.UNKOWN;
-
-            while (command != Commands.QUIT)
+            if (!File.Exists(filename))
             {
-                Output.Write($"{Player.CurrentRoom.Name}\n> ");
+                throw new FileNotFoundException("Expected file.", filename);
+            }
 
-                if (Player.PerviousRoom != Player.CurrentRoom)
-                {
-                    Output.Write($"{Player.CurrentRoom.Description}\n> ");
+            Start(File.ReadAllText(filename), input, output);
+        }
 
-                    Player.PerviousRoom = Player.CurrentRoom;
-                }
-
-                command = ToCommand(Console.ReadLine().Trim());
-
-                string outputString;
-
-                switch (command)
-                {
-                    case Commands.QUIT:
-                        outputString = "Thank you for playing!";
-                        break;
-
-                    case Commands.LOOK:
-                        Player.Movement++;
-                        outputString = Player.CurrentRoom.Description;
-                        break;
-
-                    case Commands.NORTH:
-                    case Commands.SOUTH:
-                    case Commands.EAST:
-                    case Commands.WEST:
-                        Player.Movement++;
-                        Directions directions = (Directions)command;
-                        if (Player.Move(directions) == false)
-                        {
-                           outputString = "The way is shut";
-                        }
-                        else
-                        {
-                           
-                           outputString = $"You moved {directions}";
-                        }
-                        break;
-
-                    case Commands.REWARD:
-                        Player.Score++;
-                        outputString = "Your score has increased";
-                        break;
-
-                    case Commands.SCORE:
-                        outputString = $"Your score would be {Player.Score}, in {Player.Movement} move(s).";
-                        break;
-
-                    default:
-                        outputString = "Unknown command";
-                        break;
-                }
-
-                Output.WriteLine(outputString);
+        public static void Start(string gamejsonstring, IInputService input, IOutputService output)
+        {
+            while (Instance == null)
+            {
+                Instance = Load(gamejsonstring);
+                Instance.Output = output;
+                Instance.Input = input;
+                Instance.IsRunning = true;
+                Instance.Input.InputReceived += Instance.InputInputReceived;
             }
         }
 
-        public static Game Load(string filename, IOutputService output)
+        private void InputInputReceived(object sender, string inputstring)
         {
-            Game game = JsonConvert.DeserializeObject<Game>(File.ReadAllText(filename));
+            Commands command = ToCommand(inputstring);
+
+            string outputString;
+
+            switch (command)
+            {
+                case Commands.QUIT:
+                    outputString = "Thank you for playing!";
+                    break;
+
+                case Commands.LOOK:
+                    Player.Movement++;
+                    outputString = Player.CurrentRoom.Description;
+                    break;
+
+                case Commands.NORTH:
+                case Commands.SOUTH:
+                case Commands.EAST:
+                case Commands.WEST:
+                    Player.Movement++;
+                    Directions directions = (Directions)command;
+                    if (Player.Move(directions) == false)
+                    {
+                        outputString = "The way is shut";
+                    }
+                    else
+                    { 
+                        outputString = $"You moved {directions}";
+                    }
+                    break;
+
+                case Commands.REWARD:
+                    Player.Score++;
+                    outputString = "Your score has increased";
+                    break;
+
+                case Commands.SCORE:
+                    outputString = $"Your score would be {Player.Score}, in {Player.Movement} move(s).";
+                    break;
+
+                default:
+                    outputString = "Unknown command";
+                    break;
+            }
+
+            Output.WriteLine(outputString);
+        }
+
+        public static Game Load(string jsonstring)
+        {
+            Game game = JsonConvert.DeserializeObject<Game>((jsonstring));
 
             game.Player = new Player(game.World, game.StartingLocation);
-
-            game.Output = output;
 
             return game;
         }
 
-        private static Commands ToCommand(string commandString) => Enum.TryParse(commandString, true, out Commands result) ? result : Commands.UNKOWN;
+        private static Commands ToCommand(string commandString) => Enum.TryParse<Commands>(commandString, true, out Commands result) ? result : Commands.UNKOWN;
     }
 }
