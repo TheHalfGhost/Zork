@@ -1,101 +1,52 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using Zork;
 
 public class UnityOutputService : MonoBehaviour, IOutputService
 {
     [SerializeField]
-    private TextMeshProUGUI OutputText;
+    private GameObject OutputText;
 
     [SerializeField]
-    private Transform OutPutTextContainer;
-
-    [SerializeField]
-    private Image NewLinePrefab;
-
-    [SerializeField]
-    private int MaxEntries;
-
-    private readonly List<GameObject> Entries;
-
-    public UnityOutputService() => Entries = new List<GameObject>();
-
-    private void Start()
-    {
-
-    }
+    private GameObject OutPutTextContainer;
 
     public void Clear()
     {
-        Entries.ForEach(entry => Destroy(entry));
+        for(int Entries = 0; Entries < OutPutTextContainer.transform.childCount; ++Entries)
+        {
+            Destroy(OutPutTextContainer.transform.GetChild(Entries).gameObject);
+        }
+    }
+
+    public void Write(object value)
+    {
+        Write(value.ToString());
     }
 
     public void Write(string value)
     {
-        var textLine = GameObject.Instantiate(OutputText);
+        int Entries = OutPutTextContainer.transform.childCount;
 
-        textLine.transform.SetParent(OutPutTextContainer);
+        if (Entries == 0)
+        {
+            Instantiate(OutputText, OutPutTextContainer.transform);
+        }
+        else
+        {
+            GameObject latest = OutPutTextContainer.transform.GetChild(Entries - 1).gameObject;
+            latest.GetComponent<TMP_Text>().text += value;
+        }
+    }
 
-        OutputText.text = value;
-
-        Entries.Add(OutputText.gameObject);
+    public void WriteLine(object value)
+    {
+        WriteLine(value.ToString());
     }
 
     public void WriteLine(string value)
     {
-        ParseAndWriteLine(value);
-    }
+        GameObject textLine = Instantiate(OutputText, OutPutTextContainer.transform);
 
-    private void ParseAndWriteLine(string value)
-    {
-        string[] delimiters = { "\n" };
-
-        var lines = value.Split(delimiters, StringSplitOptions.None);
-
-        foreach (var line in lines)
-        {
-            if(Entries.Count >= MaxEntries)
-            {
-                var entry = Entries.First();
-
-                Destroy(entry);
-
-                Entries.Remove(entry);
-            }
-
-            if (string.IsNullOrWhiteSpace(line))
-            {
-                WriteNewLine();
-            }
-            else
-            {
-                WriteTextLine(line);
-            }
-        }
-    }
-
-    private void WriteNewLine()
-    {
-        var newLine = Instantiate(NewLinePrefab);
-
-        newLine.transform.SetParent(OutPutTextContainer, false);
-
-        Entries.Add(newLine.gameObject);
-    }
-
-    private void WriteTextLine(string value)
-    {
-        var textLine = GameObject.Instantiate(OutputText);
-
-        textLine.transform.SetParent(OutPutTextContainer, false);
-
-        OutputText.text = value;
-
-        Entries.Add(textLine.gameObject);
+        textLine.GetComponent<TMP_Text>().text = value;
     }
 }

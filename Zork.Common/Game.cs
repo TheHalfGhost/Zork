@@ -76,17 +76,17 @@ namespace Zork
         {
             Commands command = ToCommand(inputstring);
 
-            string outputString;
-
             switch (command)
             {
                 case Commands.QUIT:
-                    outputString = "Thank you for playing!";
+                    Output.WriteLine("Thank you for playing!");
+                    Instance.IsRunning = false;
                     break;
 
                 case Commands.LOOK:
                     Player.Movement++;
-                    outputString = Player.CurrentRoom.Description;
+                    Output.WriteLine(Player.CurrentRoom.Name);
+                    Output.WriteLine(Player.CurrentRoom.Description);
                     break;
 
                 case Commands.NORTH:
@@ -97,29 +97,29 @@ namespace Zork
                     Directions directions = (Directions)command;
                     if (Player.Move(directions) == false)
                     {
-                        outputString = "The way is shut";
+                        Output.WriteLine("The way is shut");
                     }
                     else
-                    { 
-                        outputString = $"You moved {directions}";
+                    {
+                        Output.WriteLine($"You moved {directions}");
+                        Output.WriteLine(Player.CurrentRoom.Name);
+                        Output.WriteLine(Player.CurrentRoom.Description);
                     }
                     break;
 
                 case Commands.REWARD:
                     Player.Score++;
-                    outputString = "Your score has increased";
+                    Output.WriteLine("Your score has increased");
                     break;
 
                 case Commands.SCORE:
-                    outputString = $"Your score would be {Player.Score}, in {Player.Movement} move(s).";
+                    Output.WriteLine($"Your score would be {Player.Score}, in {Player.Movement} move(s).");
                     break;
 
                 default:
-                    outputString = "Unknown command";
+                    Output.WriteLine("Unknown command");
                     break;
             }
-
-            Output.WriteLine(outputString);
         }
 
         public static Game Load(string jsonstring)

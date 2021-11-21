@@ -19,21 +19,16 @@ namespace Zork
 
             output.WriteLine(Game.Instance.WelcomeMessage);
 
+            output.WriteLine(Game.Instance.Player.CurrentRoom.Name);
+
+            output.WriteLine(Game.Instance.Player.CurrentRoom.Description);
+
             while (Game.Instance.IsRunning)
             {
-                if (Game.Instance.Player.PerviousRoom != Game.Instance.Player.CurrentRoom)
-                {
-                    output.WriteLine(Game.Instance.Player.CurrentRoom.Name);
-                    output.WriteLine(Game.Instance.Player.CurrentRoom.Description);
-                    Game.Instance.Player.PerviousRoom = Game.Instance.Player.CurrentRoom;
-                }
-
                 output.Write("\n> ");
 
                 input.GetInput();
             }
-
-            output.WriteLine("Thank you for playing!");
         }
 
         private enum CommandLineArguments

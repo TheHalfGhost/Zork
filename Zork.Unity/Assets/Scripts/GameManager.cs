@@ -24,9 +24,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI ScoreText;
 
-    private Room LastLocation;
-
     private Game game;
+
+    private bool QuitCheck;
 
     void Awake()
     {
@@ -36,18 +36,35 @@ public class GameManager : MonoBehaviour
 
         Game.Start(gamejsonasset.text, InputService, OutputService);
 
+        OutputService.WriteLine(game.WelcomeMessage);
+
+        OutputService.WriteLine(game.Player.CurrentRoom.Name);
+
+        OutputService.WriteLine(game.Player.CurrentRoom.Description);
     }
 
-    private void Update()
+    void Update()
     {
-        if(game.Player.CurrentRoom != LastLocation)
+        if(Game.Instance.Player.CurrentRoom != Game.Instance.Player.PerviousRoom)
         {
-            CurrentLocationText.text = game.Player.CurrentRoom.ToString();
-            LastLocation = game.Player.CurrentRoom;
+            CurrentLocationText.text = Game.Instance.Player.CurrentRoom.ToString();
+
+            Game.Instance.Player.PerviousRoom = Game.Instance.Player.CurrentRoom;
         }
 
-        MovesText.text = $"Moves: {game.Player.Movement}";
+        MovesText.text = $"Moves: {Game.Instance.Player.Movement}";
 
-        ScoreText.text = $"Socre: {game.Player.Score}";
+        ScoreText.text = $"Socre: {Game.Instance.Player.Score}";
+
+        if (!Game.Instance.IsRunning && !QuitCheck)
+        {
+            OutputService.WriteLine("Press any key to quit");
+            QuitCheck = true;
+        }
+
+        if (QuitCheck && Input.anyKeyDown)
+        { 
+            Application.Quit();
+        }
     }
 }
