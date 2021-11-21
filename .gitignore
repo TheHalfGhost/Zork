@@ -12,9 +12,9 @@ Zork.Unity/Logs/
 Zork.Unity/obj/
 Zork.Unity/Temp/
 Zork.Unity/UserSettings/
-Zork.Unity/.vsconfig/
-Zork.Unity/Zork.Unity.sln/
-Zork.Unity/Assembly-CSharp.csproj/
+Zork.Unity/.vsconfig
+Zork.Unity/Zork.Unity.sln
+Zork.Unity/Assembly-CSharp.csproj
 
 
 
