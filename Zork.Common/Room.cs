@@ -2,7 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
+using System.Threading;
 
 namespace Zork
 {
@@ -14,6 +18,8 @@ namespace Zork
 
         public string Description { get; set; }
 
+        public string Picture { get; set; }
+
         [JsonIgnore]
         public Dictionary<Directions, Room> Neighbors {get; set;}
 
@@ -23,13 +29,15 @@ namespace Zork
         [JsonProperty (PropertyName = "Neighbors")]
         public Dictionary<Directions, string> NeighborsNames { get; set; }
 
-        public Room(string name = null, Dictionary<Directions, string> neighborsnames = null, List<string> neighborrooms = null)
+        public Room(string name = null, Dictionary<Directions, string> neighborsnames = null, List<string> neighborrooms = null, string image = null)
         {
             Name = name;
 
             NeighborsNames = neighborsnames;
 
             NeighborRooms = new List<Room>();
+
+            Picture = image;
         }
 
         public void BuildNeighborsFromName(List<Room> rooms)

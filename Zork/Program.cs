@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.IO;
 
 namespace Zork
@@ -22,6 +23,8 @@ namespace Zork
             output.WriteLine(Game.Instance.Player.CurrentRoom.Name);
 
             output.WriteLine(Game.Instance.Player.CurrentRoom.Description);
+
+            DrawArt.Draw();
 
             while (Game.Instance.IsRunning)
             {

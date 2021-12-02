@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "WZRmdby3CA7RGJvlTOgTVl/c2SZXUOvB0Cn3bIWXjUT7xoEfWw6BzeJsZ40gfOwcUHcF6ct7Avwb40T3IGAbLQ==",
+  "dgSpecHash": "kZgadwT5Elsr+BLcTu9R8EDr4p+u4dbkI5t1aPVxxm8UvGM24+PdAzcIjFN3JO9FgBAXFoAMmniLCF534gnBmg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Alexander Williams\\Documents\\GitHubT&P\\Zork\\Zork.Common\\Zork.Common.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alexander Williams\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\Alexander Williams\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
-    "C:\\Users\\Alexander Williams\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+    "C:\\Users\\Alexander Williams\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\Alexander Williams\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }

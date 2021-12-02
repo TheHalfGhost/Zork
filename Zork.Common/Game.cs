@@ -104,6 +104,7 @@ namespace Zork
                         Output.WriteLine($"You moved {directions}");
                         Output.WriteLine(Player.CurrentRoom.Name);
                         Output.WriteLine(Player.CurrentRoom.Description);
+                        DrawArt.Draw();
                     }
                     break;
 

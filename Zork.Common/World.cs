@@ -21,7 +21,9 @@ namespace Zork
         public World(IEnumerable<Room> rooms, IEnumerable<Room> neighbors, string Start, string welcomeMessage)
         {
             Rooms = new List<Room>(rooms);
+
             StartingLocation = Start;
+
             WelcomeMessage = welcomeMessage;
         }
 
