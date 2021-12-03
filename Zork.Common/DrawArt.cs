@@ -9,7 +9,7 @@ namespace Zork
 {
     public class DrawArt
     {
-        static string FullPath;
+      static string FullPath;
 
         public static void Draw()
         {
@@ -36,12 +36,10 @@ namespace Zork
                     Console.Write(Chars[Index]);
                 }
 
-                Console.Write('\n');
+                Console.Write("\n");
 
                 Thread.Sleep(50);
             }
-
-            Console.Read();
         }
     }
 }

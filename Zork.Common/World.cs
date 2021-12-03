@@ -27,7 +27,6 @@ namespace Zork
             WelcomeMessage = welcomeMessage;
         }
 
-
         [OnDeserialized]
         private void OnDeserialized(StreamingContext context)
         {
