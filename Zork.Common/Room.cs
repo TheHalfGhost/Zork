@@ -20,6 +20,8 @@ namespace Zork
 
         public string Picture { get; set; }
 
+        public string Music { get; set; }
+
         [JsonIgnore]
         public Dictionary<Directions, Room> Neighbors {get; set;}
 
@@ -29,7 +31,7 @@ namespace Zork
         [JsonProperty (PropertyName = "Neighbors")]
         public Dictionary<Directions, string> NeighborsNames { get; set; }
 
-        public Room(string name = null, Dictionary<Directions, string> neighborsnames = null, List<string> neighborrooms = null, string image = null)
+        public Room(string name = null, Dictionary<Directions, string> neighborsnames = null, List<string> neighborrooms = null, string image = null, string music = null)
         {
             Name = name;
 
@@ -38,6 +40,8 @@ namespace Zork
             NeighborRooms = new List<Room>();
 
             Picture = image;
+
+            Music = music;
         }
 
         public void BuildNeighborsFromName(List<Room> rooms)

@@ -24,6 +24,8 @@ namespace Zork
 
             output.WriteLine(Game.Instance.Player.CurrentRoom.Description);
 
+            Sound.PlaySound();
+
             DrawArt.Draw();
 
             while (Game.Instance.IsRunning)
@@ -31,6 +33,13 @@ namespace Zork
                 output.Write("\n> ");
 
                 input.GetInput();
+
+                if (Game.Instance.Player.CurrentRoom != Game.Instance.Player.PerviousRoom)
+                {
+                    Sound.PlaySound();
+
+                    Game.Instance.Player.PerviousRoom = Game.Instance.Player.CurrentRoom;
+                }
             }
         }
 
