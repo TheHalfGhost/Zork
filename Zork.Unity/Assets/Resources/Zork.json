@@ -6,77 +6,93 @@
 			{
 				"Name": "Rocky Trail",
 				"Description": "You are on a rock-strewn trail.",
+				"Picture": "Rocky_Trail.jpg",
+				"Music": "RockyPathWalk.wav",
 				"Neighbors": {
-					"EAST": "South of House",
-					"NORTH": "Forest"
+					"NORTH": "South of House",
+					"WEST": "Canyon View"
 				}
 			},
 			{
 				"Name": "South of House",
 				"Description": "You are facing the south side of a white house. There is no door here, and all the windows are barred.",
+				"Picture": "South_of_House.jpg",
+				"Music": "HouseInAForestLoop.wav",
 				"Neighbors": {
-					"WEST": "Rocky Trail",
-					"NORTH": "West of House",
-					"EAST": "Canyon View"
+					"WEST": "West of House",
+					"SOUTH": "Rocky Trail",
+					"EAST": "Behind House"
 				}
 			},
 			{
 				"Name": "Canyon View",
 				"Description": "You are at the top of the Great Canyon on its south side wall.",
+				"Picture": "Canyon_Veiw.png",
+				"Music": "RockyPathWalk.wav",
 				"Neighbors": {
-					"NORTH": "Behind House",
-					"WEST": "South of House"
+					"EAST": "Rocky Trail"
 				}
 			},
 			{
 				"Name": "Forest",
 				"Description": "This is a forest, with rees in all directions around you.",
+				"Picture": "Forest.jpg",
+				"Music": "IntoTheForest.wav",
 				"Neighbors": {
-					"SOUTH": "Rocky Trail",
-					"EAST": "West of House"
+					"SOUTH": "North of House",
+					"EAST": "Dense Woods",
+					"WEST": "Clearing"
 				}
 			},
 			{
 				"Name": "West of House",
 				"Description": "This is a open field west of a white house, with a boarded front door.",
+				"Picture": "West_of_House.jpg",
+				"Music": "HouseInAForestLoop.wav",
 				"Neighbors": {
-					"NORTH": "North of House",
-					"SOUTH": "South of House",
-					"EAST": "Behind House"
+					"WEST": "North of House",
+					"EAST": "South of House"
 				}
 			},
 			{
 				"Name": "Behind House",
-				"Description": "You are behind the white house. In onve corner of the house there is a small window which is slightly ajar.",
+				"Description": "You are behind the white house. In one corner of the house there is a small window which is slightly ajar.",
+				"Picture": "Behind_House.jpg",
+				"Music": "HouseInAForestLoop.wav",
 				"Neighbors": {
-					"SOUTH": "Canyon View",
-					"NORTH": "Clearing",
-					"WEST": "West of House"
+					"EAST": "North of House",
+					"SOUTH": "Clearing",
+					"WEST": "South of House"
 				}
 			},
 			{
 				"Name": "Dense Woods",
 				"Description": "This is a dimly lit foredt, with  large trees all around. To the east, there appears to be sunlight.",
+				"Picture": "Dense_Woods.png",
+				"Music": "IntoTheForest.wav",
 				"Neighbors": {
-					"SOUTH": "Forest",
-					"EAST": "North of House"
+					"WEST": "Forest"
 				}
 			},
 			{
 				"Name": "North of House",
 				"Description": "You are facing the north side of a white house. There is no door here, and all the windows are barred.",
+				"Picture": "South_of_House.jpg",
+				"Music": "HouseInAForestLoop.wav",
 				"Neighbors": {
-					"SOUTH": "West of House",
-					"EAST": "Clearing",
-					"WEST": "Dense Woods"
+					"NORTH": "Forest",
+					"EAST": "West of House",
+					"WEST": "Behind House"
 				}
 			},
 			{
 				"Name": "Clearing",
 				"Description": "You are in a clearing, with a forest surrounding you on the west and south.",
+				"Picture": "Clearing.png",
+				"Music": "LonelyClearing.wav",
 				"Neighbors": {
-					"SOUTH": "Behind House",
-					"WEST": "North of House"
+					"NORTH": "Behind House",
+					"EAST": "Forest"
 				}
 			}
 		]

@@ -8,6 +8,8 @@ namespace Zork
     {
         static void Main(string[] args)
         {
+            Console.SetWindowSize(150, 41);
+
             const string defaultGameFileName = "Zork.json";
 
             string gameFileName = args.Length > 0 ? args[(int)CommandLineArguments.GameFileName] : defaultGameFileName;
@@ -36,9 +38,11 @@ namespace Zork
 
                 if (Game.Instance.Player.CurrentRoom != Game.Instance.Player.PerviousRoom)
                 {
+                    Game.Instance.Player.PerviousRoom = Game.Instance.Player.CurrentRoom;
+
                     Sound.PlaySound();
 
-                    Game.Instance.Player.PerviousRoom = Game.Instance.Player.CurrentRoom;
+                    DrawArt.Draw();
                 }
             }
         }

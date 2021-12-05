@@ -9,8 +9,8 @@
 				"Picture": "Rocky_Trail.jpg",
 				"Music": "RockyPathWalk.wav",
 				"Neighbors": {
-					"EAST": "South of House",
-					"NORTH": "Forest"
+					"NORTH": "South of House",
+					"WEST": "Canyon View"
 				}
 			},
 			{
@@ -19,9 +19,9 @@
 				"Picture": "South_of_House.jpg",
 				"Music": "HouseInAForestLoop.wav",
 				"Neighbors": {
-					"WEST": "Rocky Trail",
-					"NORTH": "West of House",
-					"EAST": "Canyon View"
+					"WEST": "West of House",
+					"SOUTH": "Rocky Trail",
+					"EAST": "Behind House"
 				}
 			},
 			{
@@ -30,8 +30,7 @@
 				"Picture": "Canyon_Veiw.png",
 				"Music": "RockyPathWalk.wav",
 				"Neighbors": {
-					"NORTH": "Behind House",
-					"WEST": "South of House"
+					"EAST": "Rocky Trail"
 				}
 			},
 			{
@@ -40,8 +39,9 @@
 				"Picture": "Forest.jpg",
 				"Music": "IntoTheForest.wav",
 				"Neighbors": {
-					"SOUTH": "Rocky Trail",
-					"EAST": "West of House"
+					"SOUTH": "North of House",
+					"EAST": "Dense Woods",
+					"WEST": "Clearing"
 				}
 			},
 			{
@@ -50,9 +50,8 @@
 				"Picture": "West_of_House.jpg",
 				"Music": "HouseInAForestLoop.wav",
 				"Neighbors": {
-					"NORTH": "North of House",
-					"SOUTH": "South of House",
-					"EAST": "Behind House"
+					"WEST": "North of House",
+					"EAST": "South of House"
 				}
 			},
 			{
@@ -61,9 +60,9 @@
 				"Picture": "Behind_House.jpg",
 				"Music": "HouseInAForestLoop.wav",
 				"Neighbors": {
-					"SOUTH": "Canyon View",
-					"NORTH": "Clearing",
-					"WEST": "West of House"
+					"EAST": "North of House",
+					"SOUTH": "Clearing",
+					"WEST": "South of House"
 				}
 			},
 			{
@@ -72,8 +71,7 @@
 				"Picture": "Dense_Woods.png",
 				"Music": "IntoTheForest.wav",
 				"Neighbors": {
-					"SOUTH": "Forest",
-					"EAST": "North of House"
+					"WEST": "Forest"
 				}
 			},
 			{
@@ -82,9 +80,9 @@
 				"Picture": "South_of_House.jpg",
 				"Music": "HouseInAForestLoop.wav",
 				"Neighbors": {
-					"SOUTH": "West of House",
-					"EAST": "Clearing",
-					"WEST": "Dense Woods"
+					"NORTH": "Forest",
+					"EAST": "West of House",
+					"WEST": "Behind House"
 				}
 			},
 			{
@@ -93,8 +91,8 @@
 				"Picture": "Clearing.png",
 				"Music": "LonelyClearing.wav",
 				"Neighbors": {
-					"SOUTH": "Behind House",
-					"WEST": "North of House"
+					"NORTH": "Behind House",
+					"EAST": "Forest"
 				}
 			}
 		]
