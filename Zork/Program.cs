@@ -30,6 +30,8 @@ namespace Zork
 
             DrawArt.Draw();
 
+            Game.Instance.Player.PerviousRoom = Game.Instance.Player.CurrentRoom;
+
             while (Game.Instance.IsRunning)
             {
                 output.Write("\n> ");
